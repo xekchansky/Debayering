@@ -70,9 +70,6 @@ def interpolate_other(bayer_image, green):
 def demosaicking(bayer_image):
     green = interpolate_green(bayer_image)
     red, blue = interpolate_other(bayer_image, green)
-    #bayer.show_bayer_image(blue)
-    #red = np.zeros(bayer_image.shape)
-    #blue = np.zeros(bayer_image.shape)
     res = np.zeros((bayer_image.shape[0], bayer_image.shape[1], 3))
     res[..., 0] = red.astype(int)
     res[..., 1] = green.astype(int)
